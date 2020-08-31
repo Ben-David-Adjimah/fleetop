@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Fleetops</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="vendor/bootstrap/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="vendor/bootstrap/css/font-awesome.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body class="ml-4">
+    <!-- Page Content -->
+
+      <div class="row mt-5">
+        <div class="col-lg-4">
+          <h4>
+            Vehicle Downtime Manager
+          </h4>
+          <p>
+            <strong>Total Days Down:</strong> 154 <br />
+            <strong>Total Vehicles Down:</strong> 2
+          </p>
+        </div>
+        <div class="col-lg-8">
+          <button class="btn btn-primary btn-sm">
+            <i class="fa fa-search"></i> Analyze Downtime
+          </button>
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-outline-dark btn-sm dropdown-toggle"
+              data-toggle="dropdown"
+            >
+              <i class="fa fa-cogs"></i> Manage Fault Backlog
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Option 1</a>
+              <a class="dropdown-item" href="#">Option 2</a>
+            </div>
+          </div>
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-outline-dark btn-sm dropdown-toggle"
+              data-toggle="dropdown"
+            >
+              <i class="fa fa-clipboard"></i> Manage Fault Backlog
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Option 1</a>
+              <a class="dropdown-item" href="#">Option 2</a>
+            </div>
+          </div>
+          <button class="btn btn-outline-dark btn-sm">
+            <i class="fa fa-upload"></i> Upload
+          </button>
+          <button class="btn btn-outline-dark btn-sm">
+            <i class="fa fa-print"></i> Print
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="inputCity">View Period</label>
+              <select class="form-control mr-sm-2" id="inlineFormCustomSelect">
+                <option selected>Choose...</option>
+                <option value="1">3 Months</option>
+                <option value="2">6 Months</option>
+                <option value="3">Full Year</option>
+              </select>
+              <label for="inputZip">From View Date</label>
+              <input
+                type="date"
+                class="form-control mb-2"
+                id="inlineFormInput"
+                placeholder="Date"
+              />
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputState">Sorting Layout</label>
+              <select class="form-control mr-sm-2" id="inlineFormCustomSelect">
+                <option selected>Choose...</option>
+                <option value="1">By Alarms</option>
+                <option value="2">By Risk Ranking</option>
+                <option value="3">By Document Type</option>
+                <option value="4">By Service Schedule</option>
+                <option value="5">By Ongooing Repairs</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputZip">Search</label>
+              <input
+                type="text"
+                class="form-control mb-2"
+                id="inlineFormInput"
+                placeholder="By Reg No. Only"
+              />
+              <button class="btn btn-outline-dark btn-sm">
+                <i class="fa fa-search"></i> Show
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <h5 style="text-align: center;">RISK CHART PER MONTH</h5>
+          <div id="curve_chart" style="width: 100%; height: 300px"></div>
+        </div>
+        <div class="col-lg-3 pull-right">
+          <figure class="pie-chart">
+	<h5 style="text-align: center;">RISK CHART PER TYPE</h5>
+	<figcaption>
+		Coal 38<span style="color:#4e79a7"></span><br>
+		Natural Gas 23<span style="color:#f28e2c"></span><br>
+		Hydro 16<span style="color:#e15759"></span><br>
+		Nuclear 10<span style="color:#76b7b2"></span><br>
+		Renewable 6<span style="color:#59a14f"></span><br>
+		Other 7<span style="color:#edc949"></span>
+	</figcaption>
+</figure>
+        </div>
+      </div>                       
+  <table class="table table-bordered"  style="font-size: 8px;" width=100% >
+    <thead>
+      <tr style="text-align:center">
+        <th colspan="2"></th>
+        <th colspan="6">January</th>
+        <th colspan="6">February</th>
+        <th  colspan="6">March</th>
+        <th colspan="6">April</th>
+        <th colspan="6">May</th>
+        <th colspan="6">June</th>
+        <th colspan="6">July</th>
+        <th colspan="6">August</th>
+        <th colspan="6">September</th>
+        <th colspan="6">October</th>
+        <th colspan="6">November</th>
+        <th colspan="6">December</th>
+      </tr>
+      <tr style="text-align:center">
+        <th rowspan="3">Alarm</th>
+        <th>Risk Count</th>
+        <th colspan="6">6</th>
+        <th colspan="6">11</th>
+        <th  colspan="6">12</th>
+        <th colspan="6">4</th>
+        <th colspan="6">12</th>
+        <th colspan="6">10</th>
+        <th colspan="6">8</th>
+        <th colspan="6">6</th>
+        <th colspan="6">13</th>
+        <th colspan="6">7</th>
+        <th colspan="6">3</th>
+        <th colspan="6">9</th>
+      </tr>
+      <tr>
+        <th>Vehicle #</th>
+        <th>IE</th>
+        <th>RE</th>
+        <th>DL</th>
+        <th>DC</th>
+        <th>D1</th>
+        <th>SD</th>
+        <th>IE</th>
+        <th>RE</th>
+        <th>DL</th>
+        <th>DC</th>
+        <th>D1</th>
+        <th>SD</th>
+        <th>IE</th>
+        <th>RE</th>
+        <th>DL</th>
+        <th>DC</th>
+        <th>D1</th>
+        <th>SD</th>
+        <th>IE</th>
+        <th>RE</th>
+        <th>DL</th>
+        <th>DC</th>
+        <th>D1</th>
+        <th>SD</th>
+        <th>IE</th>
+        <th>RE</th>
+        <th>DL</th>
+        <th>DC</th>
+        <th>D1</th>
+        <th>SD</th>
+        <th>IE</th>
+        <th>RE</th>
+        <th>DL</th>
+        <th>DC</th>
+        <th>D1</th>
+        <th>SD</th>
+        <th>IE</th>
+        <th>RE</th>
+        <th>DL</th>
+        <th>DC</th>
+        <th>D1</th>
+        <th>SD</th>
+        <th>IE</th>
+        <th>RE</th>
+        <th>DL</th>
+        <th>DC</th>
+        <th>D1</th>
+        <th>SD</th>
+        <th>IE</th>
+        <th>RE</th>
+        <th>DL</th>
+        <th>DC</th>
+        <th>D1</th>
+        <th>SD</th>
+        <th>IE</th>
+        <th>RE</th>
+        <th>DL</th>
+        <th>DC</th>
+        <th>D1</th>
+        <th>SD</th>
+        <th>IE</th>
+        <th>RE</th>
+        <th>DL</th>
+        <th>DC</th>
+        <th>D1</th>
+        <th>SD</th>
+        <th>IE</th>
+        <th>RE</th>
+        <th>DL</th>
+        <th>DC</th>
+        <th>D1</th>
+        <th>SD</th>
+        <th>Potential Risk Ranking</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td width= "100px"><a href="#"  data-toggle="modal" data-target="#DMS">GN123419</a> </td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="#faf283">100%</td>
+      </tr>
+      <tr>
+        <td bgcolor="VIOLET"></td>
+        <td width= "100px"><a href="#"  data-toggle="modal" data-target="#DMS">GN123419</a> </td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="#faf283">100%</td>
+      </tr>
+      <tr>
+        <td bgcolor="GREEN"></td>
+        <td width= "100px"><a href="#"  data-toggle="modal" data-target="#DMS">GN123419</a> </td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="#faf283">100%</td>
+      </tr>
+      <tr>
+        <td bgcolor="yellow"></td>
+        <td width= "100px"><a href="#"  data-toggle="modal" data-target="#DMS">GN123419</a> </td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td ></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td ></td>
+        <td></td>
+        <td></td>
+        <td  bgcolor="blue"></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="blue"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td  bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td  bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td ></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="#faf283">100%</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td width= "100px"><a href="#"  data-toggle="modal" data-target="#DMS">GN123419</a> </td>
+        <td></td>
+        <td></td>
+        <td ></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td ></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="blue"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="RED"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td ></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td ></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td bgcolor="#faf283">100%</td>
+      </tr>
+      
+    </tbody>
+  </table>
+<div class="modal" id="DMS">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: rgb(37, 37, 37);">
+        <h4 style="color: #fff;">Downtime Management Sheet</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-6">
+            <h5>GN 12 19</h5>
+          </div>
+          <div class="col-sm-6 right">
+            <p style="text-align: right;">Monday 23 June 2020</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <table class="table table-borderless table-sm">
+              <tbody>
+                <tr>
+                  <td>Risk Exposure:</td>
+                  <td bgcolor="red">Very High</td>
+                </tr>
+                <tr>
+                  <td>
+                    Vehicle Down:
+                  </td>
+                  <td>Yes</td>
+                </tr>
+                <tr>
+                  <td>Down Source</td>
+                  <td>Document</td>
+                </tr>
+                <tr>
+                  <td>Days Down</td>
+                  <td>68</td>
+                </tr>
+                <tr>
+                  <td>Current Mileage</td>
+                  <td>68326</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <table class="table table-borderless table-sm" style="border-spacing: 5px;">
+              <thead>
+                <th>Alarm</th>
+                <th>Document</th>
+                <th>Due</th>
+                <th>Action</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td bgcolor="red" style="color:white;">Expired</td>
+                  <td>AMA Transport Tax</td>
+                  <td>June 13, 2020(Tues)</td>
+                  <td><a href="#" data-toggle="modal" data-target="#ATT"> Renew</a></td>
+                </tr>
+                <tr>
+                  <td bgcolor="red" style="color:white;">Expired</td>
+                  <td>AMA Transport Tax</td>
+                  <td>June 13, 2020(Tues)</td>
+                  <td>Renew</td>
+                </tr>
+                <tr>
+                  <td bgcolor="red" style="color:white;">Expired</td>
+                  <td>AMA Transport Tax</td>
+                  <td>June 13, 2020(Tues)</td>
+                  <td>Renew</td>
+                </tr>
+                <tr>
+                  <td style="color:white; background-color: rgb(8, 209, 58);">50 Days</td>
+                  <td>AMA Transport Tax</td>
+                  <td>June 13, 2020(Tues)</td>
+                  <td>Renew</td>
+                </tr>
+                <tr>
+                  <td  style="color:rgb(255, 255, 255);background-color: rgb(241, 187, 10);">Pending</td>
+                  <td>AMA Transport Tax</td>
+                  <td>June 13, 2020(Tues)</td>
+                  <td>Renew</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-lg-12">
+            <table class="table table-borderless table-sm" style="border-spacing: 5px;">
+              <tbody>
+                <tr>
+                  <td bgcolor="red" style="color:white;">Expired</td>
+                  <td>Routine Service</td>
+                  <td>June 13, 2020(Tues)</td>
+                  <td><a href="#" data-toggle="modal" data-target="#ATT"> Schedule Job</a></td>
+                </tr>
+                <tr>
+                  <td  style="color:white;background-color: rgb(8, 209, 58);">Expired</td>
+                  <td></td>
+                  <td>25122</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-lg-12">
+            <table class="table table-borderless table-sm" style="border-spacing: 5px;">
+              <tbody>
+                <tr>
+                  <td style="color:white; background-color: rgb(241, 187, 10);">Booking</td>
+                  <td>Repair Works</td>
+                  <td>******</td>
+                  <td><a href="#" data-toggle="modal" data-target="#ATT"> Schedule Job</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-dismiss="modal">Discard</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="ATT">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form>
+          <div class="form-group row">
+    <label for="Date" class="col-sm-2 col-form-label">Date</label>
+    <div class="col-sm-10">
+      <input type="date" readonly class="form-control-plaintext" id="date" value="Today">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="Number" class="col-sm-2 col-form-label">Request Number</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="Number" placeholder="978baj/Jonathan Doe">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="vehicleNumber" class="col-sm-2 col-form-label">Vehicle Number</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="vehicleNumber" placeholder="GT 2283 18">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="Section" class="col-sm-2 col-form-label">Section</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="Section" placeholder="Document">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="Expense" class="col-sm-2 col-form-label">Expense Details</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="Expense" placeholder="Insurance Renewal">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="Mileage" class="col-sm-2 col-form-label">Mileage</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="Mileage" placeholder="">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="Document" class="col-sm-2 col-form-label">Document</label>
+    <div class="col-sm-10">
+      <input type="file" class="form-control" id="Document" >
+    </div>
+  </div>
+</form>  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal" id="IC">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
+<div class="modal" id="DL">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
+<div class="modal" id="DC">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.slim.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/bootstrap/js/chart.js"></script>
+  <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Month', 'Risk'],
+          ['January', 4],
+          ['February', 5],
+          ['March', 10],
+          ['April', 12],  
+          ['May', 9],
+          ['June', 8],
+          ['July', 4],
+          ['August', 10],
+          ['September', 5],
+          ['October', 4],
+          ['November', 3],
+          ['December', 3]
+        ]);
+
+        var options = {
+          curveType: 'function',
+          legend:{ position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Fleetops</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="vendor/bootstrap/css/bootstrap-timepicker.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
+    />
+    <link href="vendor/bootstrap/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="vendor/bootstrap/css/font-awesome.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-lg-4">
+          <h4>Vehicle Downtime Manager</h4>
+        </div>
+        <div class="col-lg-8">
+          <button class="btn btn-outline-dark btn-sm">
+            <i class="fa fa-search"></i> Analyze Downtime
+          </button>
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-outline-dark btn-sm dropdown-toggle"
+              data-toggle="dropdown"
+            >
+              <i class="fa fa-cogs"></i> Manage Services & Repairs
+            </button>
+            <div class="dropdown-menu">
+              <a
+                class="dropdown-item"
+                href="#"
+                data-toggle="modal"
+                data-target="#MJL"
+                >Manage Job List</a
+              >
+              <a
+                class="dropdown-item"
+                href="#"
+                data-toggle="modal"
+                data-target="#SRS"
+                >Schedule Routine Service</a
+              >
+              <a
+                class="dropdown-item"
+                href="#"
+                data-toggle="modal"
+                data-target="#SRW"
+                >Schedule Repair Works</a
+              >
+            </div>
+          </div>
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-outline-dark btn-sm dropdown-toggle"
+              data-toggle="dropdown"
+            >
+              <i class="fa fa-clipboard"></i> Manage Fault Backlog
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Fault Backlog List</a>
+              <a class="dropdown-item" href="#">Add Fault</a>
+            </div>
+          </div>
+          <button class="btn btn-outline-dark btn-sm">
+            <i class="fa fa-upload"></i> Upload
+          </button>
+          <button class="btn btn-outline-dark btn-sm">
+            <i class="fa fa-print"></i> Print
+          </button>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-log-4">
+          <label class="radio-inline">
+            <input type="radio" name="full_list" />Full List</label
+          >
+          <label class="radio-inline">
+            <input type="radio" name="full_list" />Service</label
+          >
+          <label class="radio-inline">
+            <input type="radio" name="full_list" />Repair Jobs</label
+          >
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Item #</th>
+              <th>Description</th>
+              <th>Quantity</th>
+              <th>U/Price</th>
+              <th>Taxable</th>
+              <th>Other</th>
+              <th>Amount</th>
+              <th>Ext. Procured</th>
+              <th>Document</th>
+              <th>Comment</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+
+      <button class="btn btn-md btn-primary" id="addBtn" type="button">
+        Add new Row
+      </button>
+    </div>
+    <div class="row clearfix" style="margin-top:20px">
+    <div class="pull-right col-md-4">
+      <table class="table table-bordered" id="tab_logic_total">
+        <tbody>
+          <tr>
+            <th class="text-center">Sub Total</th>
+            <td class="text-center"><input type="number" name='sub_total' placeholder='0.00' class="form-control" id="sub_total" readonly/></td>
+          </tr>
+          <tr>
+            <th class="text-center">Tax</th>
+            <td class="text-center"><div class="input-group mb-2 mb-sm-0">
+                <input type="number" class="form-control" id="tax" placeholder="0">
+                <div class="input-group-addon">%</div>
+              </div></td>
+          </tr>
+          <tr>
+            <th class="text-center">Tax Amount</th>
+            <td class="text-center"><input type="number" name='tax_amount' id="tax_amount" placeholder='0.00' class="form-control" readonly/></td>
+          </tr>
+          <tr>
+            <th class="text-center">Grand Total</th>
+            <td class="text-center"><input type="number" name='total_amount' id="total_amount" placeholder='0.00' class="form-control" readonly/></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.slim.min.js"></script>
+    <script type="text/javascript" src="vendor/jquery/chart.js"></script>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="vendor/bootstrap/js/bootstrap.bundle.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="vendor/bootstrap/js/bootstrap-timepicker.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="vendor/bootstrap/js/jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="vendor/bootstrap/js/jquery-ui.min.js"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+      $("#datetimepicker3").timepicker();
+    </script>
+    <script>
+      $(document).ready(function () {
+        // Denotes total number of rows
+        var rowIdx = 0;
+
+        // jQuery button click event to add a row
+        $("#addBtn").on("click", function () {
+          // Adding a row inside the tbody.
+          $("#tbody").append(`<tr id="R${++rowIdx}"> 
+			<td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><button class="remove">Delete</button></td>
+			</tr>`);
+        });
+
+        // jQuery button click event to remove a row.
+        $("#tbody").on("click", ".remove", function () {
+          // Getting all the rows next to the row
+          // containing the clicked button
+          var child = $(this).closest("tr").nextAll();
+
+          // Iterating across all the rows
+          // obtained to change the index
+          child.each(function () {
+            // Getting <tr> id.
+            var id = $(this).attr("id");
+
+            // Getting the <p> inside the .row-index class.
+            var idx = $(this).children(".row-index").children("p");
+
+            // Gets the row number from <tr> id.
+            var dig = parseInt(id.substring(1));
+
+            // Modifying row index.
+            idx.html(`Row ${dig - 1}`);
+
+            // Modifying row id.
+            $(this).attr("id", `R${dig - 1}`);
+          });
+
+          // Removing the current row.
+          $(this).closest("tr").remove();
+
+          // Decreasing total number of rows by 1.
+          rowIdx--;
+        });
+      });
+    </script>
+  </body>
+</html>
