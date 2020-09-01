@@ -6331,9 +6331,10 @@ a.close.disabled {
   overflow: hidden;
   outline: 0;
 }
+
 .modal.visible {
-    transform: scale(1);
-    position: relative;
+  transform: scale(1);
+  position: relative;
 }
 
 .modal-dialog {

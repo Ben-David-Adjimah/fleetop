@@ -3,11 +3,11 @@ const noModalsOpen = () => !Object.keys(currentlyOpenModals).length;
 
 const modalWrapper = document.querySelector(".modal-wrapper");
 
-const modalTriggers = document.querySelectorAll(".modal-trigger");
+const modalTriggers = document.querySelectorAll(".modal");
 modalTriggers.forEach((modalTrigger) => {
   modalTrigger.addEventListener("click", (clickEvent) => {
     const trigger = clickEvent.target;
-    const modalId = trigger.getAttribute("data-modal-id");
+    const modalId = trigger.getAttribute("id");
     openModal(modalId);
   });
 });
@@ -40,12 +40,12 @@ const closeModal = (modalId) => {
 
 document.querySelectorAll(".close-modal-button").forEach((closeModalButton) => {
   closeModalButton.addEventListener("click", (clickEvent) => {
-    const modalToClose = clickEvent.target.closest(".modal-window");
+    const modalToClose = clickEvent.target.closest(".modal");
     closeModal(modalToClose.id);
   });
 });
 
-document.querySelectorAll(".modal-window").forEach((modal) => {
+document.querySelectorAll(".modal").forEach((modal) => {
   modal.addEventListener("click", (clickEvent) => {
     clickEvent.stopPropagation();
   });
