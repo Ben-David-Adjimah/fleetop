@@ -25,11 +25,13 @@
     <!-- Page Content -->
 
       <div class="container">
-      <div class="row mt-5">
+      <div class="row mt-5 mb-4">
         <div class="col-lg-4">
           <h4>
             Vehicle Downtime Manager
           </h4>
+          <p>Total Days Down: 153 <br>
+          Total Vehicles Down: 2</p>
         </div>
         <div class="col-lg-8">
           <button class="btn btn-outline-dark btn-sm">
@@ -86,21 +88,7 @@
           </button>
         </div>
       </div>
-      <div class="row mt-5">
-        <div class="col-log-4 border ml-4">
-          <label class="radio-inline mr-1 mt-1">
-            <input type="radio" name="full_list" class="ml-1 mr-1" />Full
-            List</label
-          >
-          <label class="radio-inline mr-1 mt-1">
-            <input type="radio" name="full_list" class="mr-1" />Service</label
-          >
-          <label class="radio-inline mr-1 mt-1">
-            <input type="radio" name="full_list" class="mr-1" />Repair
-            Jobs</label
-          >
-        </div>
-      </div>
+    
     </div>
       <div class="row">
         <div class="col-lg-4">
@@ -113,7 +101,7 @@
                 <option value="2">6 Months</option>
                 <option value="3">Full Year</option>
               </select>
-              <label for="inputZip">From View Date</label>
+              <label for="inputZip" class="mt-2">From View Date</label>
               <input
                 type="date"
                 class="form-control mb-2"
@@ -129,7 +117,7 @@
                 <option value="2">By Risk Ranking</option>
                 <option value="3">By Document Type</option>
                 <option value="4">By Service Schedule</option>
-                <option value="5">By Ongooing Repairs</option>
+                <option value="5">By Ongoing Repairs</option>
               </select>
             </div>
             <div class="form-group col-md-4">
@@ -164,7 +152,7 @@
 </figure>
         </div>
       </div>                       
-  <table class="table table-bordered"  style="font-size: 8px;" width=100% >
+  <table class="table table-bordered mt-3"  style="font-size: 8px;" width=100% >
     <thead>
       <tr style="text-align:center">
         <th colspan="2"></th>
