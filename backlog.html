@@ -13,14 +13,6 @@
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet" />
-    <link
-      href="vendor/bootstrap/css/bootstrap-timepicker.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
-    />
     <link href="vendor/bootstrap/css/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="vendor/bootstrap/css/font-awesome.min.css" />
     <link
@@ -35,168 +27,105 @@
       <div class="row mt-5">
         <div class="col-lg-4">
           <h4>
-           Job No.: SER 8237837
+            Vehicle Downtime Manager
           </h4>
-          <label for="" class="mr-2">Title/Description: </label><label for="">23K-24K HR Service(Filter/Oil Change)</label><br>
-          <label for="" class="mr-2">Vehicle Reg. No.: </label><label for="">GT 3838-20</label><br>
-          <label for="" class="mr-2">Schedule Start: </label><label for="">4-Apr-20</label><i class="fa fa-calendar ml-1"></i><label for="" class="ml-2">09:00</label><i class="fa fa-clock-o ml-1"></i><br>
-          <label for="" class="mr-2">Schedule Due: </label><label for="">4-Apr-20</label><i class="fa fa-calendar ml-1"></i><label for="" class="ml-2">17:00</label><i class="fa fa-clock-o ml-1"></i><br>
-          <label for="" class="mr-2">Main Supplier: </label><select name="" id="">
-            <option value="">SSAL Group</option>
-          </select><br>
-          
-          <label for="" class="mr-2">Overall Completion: </label><label for="">0%</label><br>
+        </div>
+        <div class="col-lg-8">
+          <button class="btn btn-outline-dark btn-sm">
+            <i class="fa fa-search"></i> Analyze Downtime
+          </button>
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-outline-dark btn-sm dropdown-toggle"
+              data-toggle="dropdown"
+            >
+              <i class="fa fa-cogs"></i> Manage Services & Repairs
+            </button>
+            <div class="dropdown-menu">
+              <a
+                class="dropdown-item"
+                href="vehicle_jobs.html"
+                >Manage Job List</a
+              >
+              <a
+                class="dropdown-item"
+                href="#"
+                data-toggle="modal"
+                data-target="#SRS"
+                >Schedule Routine Service</a
+              >
+              <a
+                class="dropdown-item"
+                href="#"
+                data-toggle="modal"
+                data-target="#SRW"
+                >Schedule Repair Works</a
+              >
+            </div>
+          </div>
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-outline-dark btn-sm dropdown-toggle"
+              data-toggle="dropdown"
+            >
+              <i class="fa fa-clipboard"></i> Manage Fault Backlog
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="backlog.html">Fault Backlog List</a>
+              <a class="dropdown-item" href="fault.html">Add Fault</a>
+            </div>
+          </div>
+          <button class="btn btn-outline-dark btn-sm">
+            <i class="fa fa-upload"></i> Upload
+          </button>
+          <button class="btn btn-outline-dark btn-sm">
+            <i class="fa fa-print"></i> Print
+          </button>
         </div>
       </div>
-      <div class="row mt-5">
+       <div class="row mt-5">
         <div class="col-log-4 border ml-4 mb-4">
           <label class="radio-inline mr-1 mt-1">
-            <input type="radio" name="full_list" class="ml-1 mr-1" />Full
-            List</label
+            <input type="radio" name="full_list" class="ml-1 mr-1" />Full List</label
           >
           <label class="radio-inline mr-1 mt-1">
-            <input type="radio" name="full_list" class="mr-1" />Service</label
-          >
-          <label class="radio-inline mr-1 mt-1">
-            <input type="radio" name="full_list" class="mr-1" />Repair
-            Jobs</label
+            <input type="radio" name="full_list" class="mr-1" />Group By Vehicle</label
           >
         </div>
       </div>
     </div>
-    <div class="container border">
-      <div class="table-responsive">
-        <div class="row">
-          <div class="col-md-10">
-<p class="ml-2 mt-2">1. 25K-30K Hr. Service (Filter/Oil Change)</p>
-          </div>
-          <div class="col-md-2">
-<button class="btn btn-md btn-link pull-right" id="addBtn" type="button">
-        Add Item
-      </button>
-          </div>
-        </div>
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Item #</th>
-              <th>Description</th>
-              <th>Quantity</th>
-              <th>U/Price</th>
-              <th>Taxable</th>
-              <th>Other</th>
-              <th>Amount</th>
-              <th>Ext. Procured</th>
-              <th>Document</th>
-              <th>Comment</th>
-            </tr>
-          </thead>
-          <tbody id="tbody"></tbody>
-        </table>
-        <table class="pull-right">
-          <tbody>
-            <tr>
-              <td>Subtotal</td>
-              <td style="border: 1px solid black;text-align: right;">0.00</td>
-            </tr>
-            <tr>
-              <td>Tax Rate</td>
-              <td style="border: 1px solid black;text-align: right;">0.00%</td>
-            </tr>
-            <tr>
-              <td>Tax Amount</td>
-              <td style="border: 1px solid black;text-align: right;">0.00</td>
-            </tr>
-            <tr>
-              <td>Other</td>
-              <td style="border: 1px solid black;text-align: right;">0.00</td>
-            </tr>
-            <tr>
-              <td>TOTAL:</td>
-              <td  style="border: 1px solid black;text-align: right;">0.00</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      
     </div>
-</div>
-<div class="row mt-3 mb-2">
-  <p class="ml-3 mt-1">Payment Source</p>
-        <div class="col-log-4 border ml-4">
-          <label class="radio-inline mr-1 mt-1">
-            <input type="radio" name="full_list" class="ml-1 mt-1 mr-1" />Own Source</label
-          >
-          <label class="radio-inline mr-1 mt-1">
-            <input type="radio" name="full_list" class="mr-1" />Insurance</label
-          >
-          <label class="radio-inline mr-1 mt-1">
-            <input type="radio" name="full_list" class="mr-1" />Warranty
-           </label
-          >
-        </div>
-        <input type="checkbox" name="full_list" class=" ml-4 mt-2" />
-         <label class="form-check-label ml-1 mt-2">
-            Combine Suppliers Payment
-            </label
-          >
-      </div>
-<div class="container">
-      <div class="table-responsive">
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Item #</th>
-              <th>Amount</th>
-              <th>Paid</th>
-              <th>Balance</th>
-              <th>Document</th>
-              <th>Completion</th>
-              <th>Comment</th>
-            </tr>
-          </thead>
-          <tbody id="Tbody"></tbody>
-        </table>
-        <table class="pull-right">
-          <thead>
-            <tr>
-              <th></th>
-              <th style="border: 1px solid black;">Amount</th>
-              <th style="border: 1px solid black;">Price</th>
-              <th style="border: 1px solid black;">Balance</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Main Repairer Total</td>
-              <td style="border: 1px solid black;text-align: right;">0.00</td>
-              <td style="border: 1px solid black;text-align: right;">0.00</td>
-              <td style="border: 1px solid black;text-align: right;">0.00</td>
-            </tr>
-            <tr>
-              <td>Externally Procurred Total</td>
-              <td style="border: 1px solid black;text-align: right;">0.00</td>
-              <td style="border: 1px solid black;text-align: right;">0.00</td>
-              <td style="border: 1px solid black;text-align: right;">0.00</td>
-            </tr>
-            <tr>
-              <td>Total:</td>
-              <td  style="border: 1px solid black;text-align: right;">0.00</td>
-              <td style="border: 1px solid black;text-align: right;">0.00</td>
-              <td style="border: 1px solid black;text-align: right;">0.00</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-<div class="pull-right mt-4">
-  <button class="btn btn-success mr-2">Close Job</button>
-  <button class="btn btn-warning mr-2">Confirm</button>
-  <button class="btn btn-light">Discard</button>
-</div>
-      
-    </div>
- <div class="modal" id="SRS">
+    <div class="container">
+  <h5 style="text-align: center;">Faults Backlog</h5>                       
+  <table class="table table-bordered">
+    <thead>
+      <tr style="text-align:center">
+        <th >Log date</th>
+        <th >Vehicle Reg.</th>
+        <th >Fault Description</th>
+        <th >Section</th>
+        <th >Cause</th>
+        <th >Severity</th>
+        <th >Impact</th>
+        <th >Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td ></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    </tbody>
+  </table>
+   <div class="modal" id="SRS">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-body">
@@ -447,8 +376,7 @@
         </div>
       </div>
 
-    <!-- Bootstrap core JavaScript -->
-     <script src="vendor/jquery/jquery.slim.min.js"></script>
+    <script src="vendor/jquery/jquery.slim.min.js"></script>
     <script type="text/javascript" src="vendor/jquery/chart.js"></script>
     <script
       type="text/javascript"
@@ -458,85 +386,6 @@
     <script src="vendor/bootstrap/js/bootstrap-timepicker.min.js"></script>
     <script type="text/javascript">
       $("#datetimepicker3").timepicker();
-    </script>
-    <script
-      type="text/javascript"
-      src="vendor/bootstrap/js/jquery.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="vendor/bootstrap/js/jquery-ui.min.js"
-    ></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script type="text/javascript">
-      $("#datetimepicker3").timepicker();
-    </script>
-    <script>
-      $(document).ready(function () {
-        // Denotes total number of rows
-        var rowIdx = 0;
-
-        // jQuery button click event to add a row
-        $("#addBtn").on("click", function () {
-          // Adding a row inside the tbody.
-          $("#tbody").append(`<tr id="R${++rowIdx}"> 
-			<td></td>
-            <td><input type="text" class="form-control" /></td>
-            <td><input type="text" class="form-control" /></td>
-            <td><input type="text" class="form-control" /></td>
-            <td><input type="checkbox" class="form-control" /></td>
-            <td></td>
-            <td></td>
-            <td><input type="checkbox" class="form-control" /></td>
-            <td><input type="file" class="form-control" /></td>            
-            <td><input type="text" class="form-control" /></td>
-            <td style="border:0px"><button class="btn btn-link remove">Delete</button></td>
-			</tr>`);
-       $("#Tbody").append(`<tr id="R${++rowIdx}"> 
-			<td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td style="border:0px"><button class="btn btn-link Payment">Make Payment</button></td>
-			</tr>`);
-        });
-
-        // jQuery button click event to remove a row.
-        $("#tbody").on("click", ".remove", function () {
-          // Getting all the rows next to the row
-          // containing the clicked button
-          var child = $(this).closest("tr").nextAll();
-
-          // Iterating across all the rows
-          // obtained to change the index
-          child.each(function () {
-            // Getting <tr> id.
-            var id = $(this).attr("id");
-
-            // Getting the <p> inside the .row-index class.
-            var idx = $(this).children(".row-index").children("p");
-
-            // Gets the row number from <tr> id.
-            var dig = parseInt(id.substring(1));
-
-            // Modifying row index.
-            idx.html(`Row ${dig - 1}`);
-
-            // Modifying row id.
-            $(this).attr("id", `R${dig - 1}`);
-          });
-
-          // Removing the current row.
-          $(this).closest("tr").remove();
-
-          // Decreasing total number of rows by 1.
-          rowIdx--;
-        });
-      });
     </script>
   </body>
 </html>

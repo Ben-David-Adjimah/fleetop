@@ -12,7 +12,7 @@
     <title>Fleetops</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link href="vendor/bootstrap/css/style.css" rel="stylesheet" />
     <link rel="stylesheet" href="vendor/bootstrap/css/font-awesome.min.css" />
     <link
@@ -21,14 +21,12 @@
     />
   </head>
 
-  <body>
+  <body class="ml-4">
     <!-- Page Content -->
     <div class="container">
       <div class="row mt-5">
         <div class="col-lg-4">
-          <h4>
-            Vehicle Downtime Manager
-          </h4>
+          <h4>Vehicle Downtime Manager</h4>
         </div>
         <div class="col-lg-8">
           <button class="btn btn-outline-dark btn-sm">
@@ -43,9 +41,23 @@
               <i class="fa fa-cogs"></i> Manage Services & Repairs
             </button>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Manage Job List</a>
-              <a class="dropdown-item" href="#">Schedule Routine Service</a>
-              <a class="dropdown-item" href="#">Schedule Routine Works</a>
+              <a class="dropdown-item" href="vehicle_jobs.html"
+                >Manage Job List</a
+              >
+              <a
+                class="dropdown-item"
+                href="#"
+                data-toggle="modal"
+                data-target="#SRS"
+                >Schedule Routine Service</a
+              >
+              <a
+                class="dropdown-item"
+                href="#"
+                data-toggle="modal"
+                data-target="#SRW"
+                >Schedule Repair Works</a
+              >
             </div>
           </div>
           <div class="btn-group">
@@ -57,8 +69,10 @@
               <i class="fa fa-clipboard"></i> Manage Fault Backlog
             </button>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Fault Backlog List</a>
-              <a class="dropdown-item" href="#">Add Fault</a>
+              <a class="dropdown-item" href="edit_fault.html"
+                >Fault Backlog List</a
+              >
+              <a class="dropdown-item" href="fault.html">Add Fault</a>
             </div>
           </div>
           <button class="btn btn-outline-dark btn-sm">
@@ -69,16 +83,31 @@
           </button>
         </div>
       </div>
+      <div class="row mt-5">
+        <div class="col-log-4 border ml-4">
+          <label class="radio-inline mr-1 mt-1">
+            <input type="radio" name="full_list" class="ml-1 mr-1" />Full
+            List</label
+          >
+          <label class="radio-inline mr-1 mt-1">
+            <input type="radio" name="full_list" class="mr-1" />Service</label
+          >
+          <label class="radio-inline mr-1 mt-1">
+            <input type="radio" name="full_list" class="mr-1" />Repair
+            Jobs</label
+          >
+        </div>
+      </div>
     </div>
     <div class="container">
       <div class="row mt-5">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <form>
             <div class="form-group row">
               <label for="Date" class="col-sm-4 col-form-label"
                 >Fault Code</label
               >
-              <div class="col-sm-7">
+              <div class="col-sm-8">
                 <input
                   type="text"
                   class="form-control"
@@ -89,7 +118,7 @@
             </div>
             <div class="form-group row">
               <label for="Date" class="col-sm-4 col-form-label">Date</label>
-              <div class="col-sm-7">
+              <div class="col-sm-8">
                 <input type="date" class="form-control" id="date" />
               </div>
             </div>
@@ -97,7 +126,7 @@
               <label for="vehicleNumber" class="col-sm-4 col-form-label"
                 >Cell Site/Field Agent</label
               >
-              <div class="col-sm-7">
+              <div class="col-sm-8">
                 <input
                   type="text"
                   class="form-control"
@@ -110,7 +139,7 @@
               <label for="Section" class="col-sm-4 col-form-label"
                 >Mileage</label
               >
-              <div class="col-sm-7">
+              <div class="col-sm-8">
                 <input
                   type="text"
                   class="form-control"
@@ -123,7 +152,7 @@
               <label for="Expense" class="col-sm-4 col-form-label"
                 >Fault Description</label
               >
-              <div class="col-sm-7">
+              <div class="col-sm-8">
                 <select name="fault_description" id="" class="form-control">
                   <option value="">Engine worn out</option>
                   <option value="">Option 2</option>
@@ -134,7 +163,7 @@
               <label for="Mileage" class="col-sm-4 col-form-label"
                 >Fault Section</label
               >
-              <div class="col-sm-7">
+              <div class="col-sm-8">
                 <select name="fault_description" id="" class="form-control">
                   <option value="">Engine</option>
                   <option value="">Option 2</option>
@@ -145,7 +174,7 @@
               <label for="Document" class="col-sm-4 col-form-label"
                 >Fault Cause</label
               >
-              <div class="col-sm-7">
+              <div class="col-sm-8">
                 <select name="fault_description" id="" class="form-control">
                   <option value="">Wear/Tear/Damage</option>
                   <option value="">Option 2</option>
@@ -156,7 +185,7 @@
               <label for="Document" class="col-sm-4 col-form-label"
                 >Fault Manifestation</label
               >
-              <div class="col-sm-7">
+              <div class="col-sm-8">
                 <select name="fault_description" id="" class="form-control">
                   <option value="">Rattling Noise</option>
                   <option value="">Option 2</option>
@@ -167,7 +196,7 @@
               <label for="Document" class="col-sm-4 col-form-label"
                 >Severity</label
               >
-              <div class="col-sm-7">
+              <div class="col-sm-8">
                 <select name="fault_description" id="" class="form-control">
                   <option value="">Medium</option>
                   <option value="">Option 2</option>
@@ -178,7 +207,7 @@
               <label for="Document" class="col-sm-4 col-form-label"
                 >Impact</label
               >
-              <div class="col-sm-7">
+              <div class="col-sm-8">
                 <select name="fault_description" id="" class="form-control">
                   <option value="">Operating with Fault</option>
                   <option value="">Option 2</option>
@@ -189,7 +218,7 @@
               <label for="Document" class="col-sm-4 col-form-label"
                 >Action Required</label
               >
-              <div class="col-sm-7">
+              <div class="col-sm-8">
                 <select name="fault_description" id="" class="form-control">
                   <option value="">Replace</option>
                   <option value="">Option 2</option>
@@ -197,18 +226,25 @@
               </div>
             </div>
             <div class="form-group row">
-              <center>
+              <label for="Document" class="col-sm-4 col-form-label"
+                >Video/Picture</label
+              >
+              <div class="col-sm-8">
+                <input type="file" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group row pull-right">
+              <div class="col-sm-12">
                 <button class="btn btn-warning mr-2">Confirm</button>
                 <button class="btn btn-danger mr-2">Delete</button>
                 <button class="btn btn-light mr-2">Discard</button>
-              </center>
+              </div>
             </div>
           </form>
         </div>
       </div>
     </div>
 
-    <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.slim.min.js"></script>
     <script type="text/javascript" src="vendor/jquery/chart.js"></script>
     <script
@@ -216,5 +252,9 @@
       src="https://www.gstatic.com/charts/loader.js"
     ></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap-timepicker.min.js"></script>
+    <script type="text/javascript">
+      $("#datetimepicker3").timepicker();
+    </script>
   </body>
 </html>

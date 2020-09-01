@@ -12,7 +12,7 @@
     <title>Fleetops</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link
       href="vendor/bootstrap/css/bootstrap-timepicker.min.css"
       rel="stylesheet"
@@ -25,14 +25,12 @@
     />
   </head>
 
-  <body>
+  <body class="ml-4">
     <!-- Page Content -->
     <div class="container">
       <div class="row mt-5">
         <div class="col-lg-4">
-          <h4>
-            Vehicle Downtime Manager
-          </h4>
+          <h4>Vehicle Downtime Manager</h4>
         </div>
         <div class="col-lg-8">
           <button class="btn btn-outline-dark btn-sm">
@@ -49,9 +47,7 @@
             <div class="dropdown-menu">
               <a
                 class="dropdown-item"
-                href="#"
-                data-toggle="modal"
-                data-target="#MJL"
+                href="vehicle_jobs.html"
                 >Manage Job List</a
               >
               <a
@@ -79,8 +75,10 @@
               <i class="fa fa-clipboard"></i> Manage Fault Backlog
             </button>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Fault Backlog List</a>
-              <a class="dropdown-item" href="#">Add Fault</a>
+              <a class="dropdown-item" href="edit_fault.html"
+                >Fault Backlog List</a
+              >
+              <a class="dropdown-item" href="fault.html">Add Fault</a>
             </div>
           </div>
           <button class="btn btn-outline-dark btn-sm">
@@ -91,25 +89,28 @@
           </button>
         </div>
       </div>
-      <div class="row mt-5">
-        <div class="col-log-4">
-          <label class="radio-inline">
-            <input type="radio" name="full_list" />Full List</label
+       <div class="row mt-5">
+        <div class="col-log-4 border ml-4 mb-4">
+          <label class="radio-inline mr-1 mt-1">
+            <input type="radio" name="full_list" class="ml-1 mr-1" />Full
+            List</label
           >
-          <label class="radio-inline">
-            <input type="radio" name="full_list" />Service</label
+          <label class="radio-inline mr-1 mt-1">
+            <input type="radio" name="full_list" class="mr-1" />Service</label
           >
-          <label class="radio-inline">
-            <input type="radio" name="full_list" />Repair Jobs</label
+          <label class="radio-inline mr-1 mt-1">
+            <input type="radio" name="full_list" class="mr-1" />Repair
+            Jobs</label
           >
         </div>
       </div>
     </div>
+    </div>
     <div class="container">
-      <h5 style="text-align: center;">Vehicle Jobs</h5>
+      <h5 style="text-align: center">Vehicle Jobs</h5>
       <table class="table table-bordered">
         <thead>
-          <tr style="text-align: center;">
+          <tr style="text-align: center">
             <th>Entry Date</th>
             <th>Job No.</th>
             <th>Vehicle Number</th>
@@ -120,12 +121,13 @@
         </thead>
         <tbody>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>21-Apr-20</td>
+            <td><a href="#">ER97484</a> </td>
+            <td><a href="#" data-toggle="modal"
+                data-target="#SRSE">GT9748-14</a></td>
+            <td>Bulb, cabling and fuse replacement</td>
+            <td>25-Mar-20</td>
+            <td>26-Mar-20</td>
           </tr>
         </tbody>
       </table>
@@ -135,6 +137,131 @@
             <div class="modal-body">
               <h4 class="mt-4">Vehicle Downtime Service Manager</h4>
               <h6 class="mb-5">Schedule Routine Service (New)</h6>
+              <form action="">
+                <div class="form-group row">
+                  <label for="Date" class="col-sm-4 col-form-label"
+                    >Job No.:</label
+                  >
+                  <div class="col-sm-7">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="job_no"
+                      placeholder="SER-32723/2"
+                    />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="Date" class="col-sm-4 col-form-label">Date</label>
+                  <div class="col-sm-7">
+                    <input type="date" class="form-control" id="date" />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="vehicleNumber" class="col-sm-4 col-form-label"
+                    >Title/Description</label
+                  >
+                  <div class="col-sm-7">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="description"
+                      placeholder=""
+                    />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="Section" class="col-sm-4 col-form-label"
+                    >Vehicle No.</label
+                  >
+                  <div class="col-sm-7">
+                    <select name="fault_description" id="" class="form-control">
+                      <option value=""></option>
+                      <option value=""></option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="vehicleNumber" class="col-sm-4 col-form-label"
+                    >Start By</label
+                  >
+                  <div class="col-sm-4">
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="description"
+                      placeholder=""
+                    />
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="input-group bootstrap-timepicker timepicker">
+                      <input
+                        type="time"
+                        class="form-control"
+                        id="timepicker3"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="vehicleNumber" class="col-sm-4 col-form-label"
+                    >Due By</label
+                  >
+                  <div class="col-sm-4">
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="description"
+                      placeholder=""
+                    />
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="input-group bootstrap-timepicker timepicker">
+                      <input
+                        type="time"
+                        class="form-control"
+                        id="timepicker3"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="vehicleNumber" class="col-sm-4 col-form-label"
+                    >Notification By:
+                  </label>
+                  <div class="col-sm-7">
+                    <input type="checkbox" class="form-check-inout" />
+                    <label for="notify" class="form-check-label"
+                      >Notify Driver</label
+                    >
+                    <br />
+                    <input type="checkbox" class="form-check-inout" />
+                    <label for="notify" class="form-check-label"
+                      >Notify Field Agent</label
+                    ><br />
+                    <input type="checkbox" class="form-check-inout" />
+                    <label for="notify" class="form-check-label"
+                      >Notify Admin/Manager</label
+                    >
+                  </div>
+                </div>
+                <div class="center">
+                  <button class="btn btn-warning">Confirm</button>
+                  <button class="btn btn-light" data-dismiss="modal">
+                    Discard
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal" id="SRSE">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <h4 class="mt-4">Vehicle Downtime Service Manager</h4>
+              <h6 class="mb-5">Schedule Routine Service (Edit)</h6>
               <form action="">
                 <div class="form-group row">
                   <label for="Date" class="col-sm-4 col-form-label"
