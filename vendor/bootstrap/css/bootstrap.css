@@ -6321,7 +6321,7 @@ a.close.disabled {
 }
 
 .modal {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 1050;
@@ -6330,6 +6330,10 @@ a.close.disabled {
   height: 100%;
   overflow: hidden;
   outline: 0;
+}
+.modal.visible {
+    transform: scale(1);
+    position: relative;
 }
 
 .modal-dialog {
